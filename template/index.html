@@ -10,7 +10,7 @@
             font-family: 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f7f8fb;
+            background: linear-gradient(135deg, #f7f8fb, #e0e5ec);
             color: #333;
             line-height: 1.6;
         }
@@ -22,12 +22,12 @@
 
         h1, h2 {
             color: #333;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         h3 {
             color: #4CAF50;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         h1, h2, h3 {
@@ -36,13 +36,21 @@
 
         /* Header */
         header {
-            background-color: #4CAF50;
+            background: linear-gradient(135deg, #4CAF50, #388E3C);
             color: white;
             text-align: center;
-            padding: 40px 0;
+            padding: 60px 0;
             font-size: 36px;
             font-weight: 700;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        header h2 {
+            font-size: 24px;
+            font-weight: 400;
+            margin-top: 10px;
+            color: rgba(255, 255, 255, 0.9);
         }
 
         /* Product Grid */
@@ -52,16 +60,36 @@
             gap: 30px;
             padding: 40px 20px;
             justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .product {
             background: white;
-            padding: 20px;
-            border-radius: 12px;
+            padding: 25px;
+            border-radius: 16px;
             box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
             cursor: pointer;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(56, 142, 60, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .product:hover::before {
+            opacity: 1;
         }
 
         .product:hover {
@@ -79,6 +107,7 @@
         .product h3 {
             font-size: 24px;
             margin-bottom: 15px;
+            color: #4CAF50;
         }
 
         .product p {
@@ -101,27 +130,30 @@
         /* Call to Action Button */
         .button-link {
             display: inline-block;
-            margin-top: 40px;
-            padding: 12px 24px;
-            background-color: #4CAF50;
+            margin: 40px auto;
+            padding: 14px 28px;
+            background: linear-gradient(135deg, #4CAF50, #388E3C);
             color: white;
             font-size: 18px;
             border-radius: 8px;
             text-decoration: none;
-            transition: background-color 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .button-link:hover {
-            background-color: #388E3C;
+            transform: translateY(-3px);
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
         }
 
         /* Footer */
         footer {
-            background-color: #333;
+            background: linear-gradient(135deg, #333, #222);
             color: white;
             text-align: center;
             padding: 20px;
             font-size: 16px;
+            margin-top: 60px;
         }
 
         /* Responsive Design */
@@ -131,13 +163,18 @@
             }
 
             .product {
-                padding: 15px;
+                padding: 20px;
             }
         }
 
         @media screen and (max-width: 480px) {
             header {
                 font-size: 28px;
+                padding: 40px 0;
+            }
+
+            header h2 {
+                font-size: 18px;
             }
 
             .product h3 {
@@ -146,6 +183,11 @@
 
             .product p {
                 font-size: 14px;
+            }
+
+            .button-link {
+                font-size: 16px;
+                padding: 12px 24px;
             }
         }
     </style>

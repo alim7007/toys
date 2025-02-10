@@ -81,6 +81,14 @@
             font-size: 16px;
         }
 
+        /* Error Message Styling */
+        .error-message {
+            color: #ff4444;
+            font-size: 14px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
         /* Back Link */
         a {
             display: inline-block;
@@ -101,14 +109,19 @@
 <body>
     <h1>Create a New Product</h1>
     <form action="/create" method="POST">
+        <!-- Display error message if it exists -->
+        {{ if .error }}
+            <div class="error-message">{{ .error }}</div>
+        {{ end }}
+
         <label>Product ID:</label>
-        <input type="text" name="id" required><br>
+        <input type="text" name="id" value="{{ .id }}" required><br>
 
         <label>Product Name:</label>
-        <input type="text" name="name" required><br>
+        <input type="text" name="name" value="{{ .name }}" required><br>
 
         <label>Description:</label>
-        <textarea name="description" required></textarea><br>
+        <textarea name="description" required>{{ .description }}</textarea><br>
 
         <button type="submit">Add Product</button>
     </form>
