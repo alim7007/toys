@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.product.Name}}</title>
+
+    <meta name="description" content="{{.product.Description}}">
+    <meta property="og:title" content="{{.product.Name}}">
+    <meta property="og:description" content="{{.product.Description}}">
+    <meta property="og:type" content="product">
+    <meta property="og:url" content="https://lego.xyz/product/{{.product.ID}}">
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f8fb;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        h1, h2 {
+            color: #333;
+            font-weight: 600;
+        }
+
+        h3 {
+            color: #4CAF50;
+            font-weight: 500;
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 15px;
+        }
+
+        /* Product Page */
+        .product-page {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .product-page h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .product-page p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .button-link {
+            padding: 12px 24px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-link:hover {
+            background-color: #388E3C;
+        }
+
+        /* Back Link */
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        a:hover {
+            background-color: #388E3C;
+        }
+    </style>
+</head>
+<body>
+    <div class="product-page">
+        <h1>{{.product.Name}}</h1>
+        <p>{{.product.Description}}</p>
+        <a href="/" class="button-link">Back to Home</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Store</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f8fb;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        h1, h2 {
+            color: #333;
+            font-weight: 600;
+        }
+
+        h3 {
+            color: #4CAF50;
+            font-weight: 500;
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 15px;
+        }
+
+        /* Header */
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            font-size: 36px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px 20px;
+            justify-content: center;
+        }
+
+        .product {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .product:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .product h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .product p {
+            font-size: 16px;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .product a {
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .product a:hover {
+            color: #388E3C;
+        }
+
+        /* Call to Action Button */
+        .button-link {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 12px 24px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-link:hover {
+            background-color: #388E3C;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 16px;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .product {
+                padding: 15px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            header {
+                font-size: 28px;
+            }
+
+            .product h3 {
+                font-size: 20px;
+            }
+
+            .product p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Store</h1>
+        <h2>Browse Our Products</h2>
+    </header>
+
+    <div class="product-grid">
+        {{range .products}}
+            <div class="product">
+                <a href="/product/{{.ID}}"><h3>{{.Name}}</h3></a>
+                <p>{{.Description}}</p>
+            </div>
+        {{end}}
+    </div>
+
+    <a href="/create" class="button-link">Create Product</a>
+
+    <footer>
+        &copy; 2025 My Store. All Rights Reserved.
+    </footer>
+</body>
+</html>
