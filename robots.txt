@@ -3,4 +3,4 @@ Disallow: /admin/
 Disallow: /login/
 Disallow: /private/
 
-Sitemap: https://lego.xyz/sitemap.xml
+Sitemap: https://nexaragame.com/sitemap.xml

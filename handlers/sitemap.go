@@ -26,7 +26,7 @@ func SitemapHandler(c *gin.Context) {
 			return
 		}
 
-		productURL := fmt.Sprintf("https://lego.xyz/product/%s", id)
+		productURL := fmt.Sprintf("https://nexaragame.com/product/%s", id)
 		sitemap += fmt.Sprintf(`
 		<url>
 			<loc>%s</loc>
